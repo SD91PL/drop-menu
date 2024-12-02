@@ -5,7 +5,7 @@ export default function Home() {
 				src='/logo.png'
 				alt='Droplo Menu or Drop Menu logotype'
 			/>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+			<p>Home page of the application.</p>
 		</main>
 	)
 }
