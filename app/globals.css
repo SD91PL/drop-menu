@@ -13,4 +13,5 @@ body {
 	color: var(--foreground);
 	background: var(--background);
 	font-family: 'Inter', sans-serif;
+	overflow-x: hidden; /* Protection against page widening when dragging elements. */
 }
