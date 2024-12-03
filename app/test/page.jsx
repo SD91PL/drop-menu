@@ -96,7 +96,17 @@ export default function Test() {
 											</a>
 										</div>
 									</div>
-									<div className='flex'>BUTTONS</div>
+									<div className='flex text-[#344054] border border-[#D0D5DD] rounded-lg overflow-hidden'>
+										<button className='py-[0.625rem] px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
+											Usuń
+										</button>
+										<button className='py-[0.625rem] px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
+											Edytuj
+										</button>
+										<button className='py-[0.625rem] px-4 outline-gray-200'>
+											Dodaj pozycję menu
+										</button>
+									</div>
 								</div>
 							</div>
 							<div className='flex justify-start items-center px-4 sm:px-6 py-4 min-h-[79px] text-sm font-semibold'>
