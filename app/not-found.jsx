@@ -3,6 +3,7 @@ export default function NotFound() {
 		<main className='flex flex-col justify-center items-center h-screen'>
 			<section id='notFound'>
 				<img
+					className='grayscale'
 					src='/logo.png'
 					alt='Droplo Menu or Drop Menu logotype'
 				/>
