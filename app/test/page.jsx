@@ -59,7 +59,7 @@ export default function Test() {
 								</button>
 							</div>
 						</form>
-						<div className='min-w-[80px]'>
+						<div className='min-w-[60px] sm:min-w-[80px]'>
 							<div className='flex w-full justify-center'>
 								<button className='flex justify-center items-center w-10 h-9 hover:scale-105 transition-transform outline-gray-200'>
 									<img
@@ -76,7 +76,7 @@ export default function Test() {
 					<section className='w-full rounded-lg border border-[#D0D5DD] overflow-hidden'>
 						<div className='flex flex-col'>
 							<div className='menu-items dnd-wrapper'>
-								<div className='flex justify-between items-center px-6 py-4 min-h-[79px] text-sm font-semibold bg-white border border-[#EAECF0]'>
+								<div className='flex justify-between items-center px-4 sm:px-6 py-4 min-h-[79px] text-sm font-semibold bg-white border border-[#EAECF0]'>
 									<div className='flex'>
 										<button className='flex justify-center items-center w-10 h-10 hover:scale-105 transition-transform outline-gray-200 cursor-move'>
 											<img
@@ -92,20 +92,71 @@ export default function Test() {
 												rel='noopener'
 												className='outline-gray-200'>
 												<p className='font-normal text-[#475467]'>
-													https://rc32141.redcart.pl/promocje
+													<span className='md:hidden'>Link</span>
+													<span className='hidden md:inline'>
+														https://rc32141.redcart.pl/promocje
+													</span>
 												</p>
 											</a>
 										</div>
 									</div>
-									<div className='flex text-[#344054] border border-[#D0D5DD] rounded-lg overflow-hidden'>
+									<div className='flex ml-2 text-[#344054] border border-[#D0D5DD] rounded-lg overflow-clip'>
 										<button className='py-[0.625rem] px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
-											Usuń
+											<span className='sm:hidden'>
+												<svg
+													xmlns='http://www.w3.org/2000/svg'
+													fill='none'
+													viewBox='0 0 24 24'
+													strokeWidth={1.5}
+													stroke='currentColor'
+													className='size-5'>
+													<path
+														strokeLinecap='round'
+														strokeLinejoin='round'
+														d='M12 9.75 14.25 12m0 0 2.25 2.25M14.25 12l2.25-2.25M14.25 12 12 14.25m-2.58 4.92-6.374-6.375a1.125 1.125 0 0 1 0-1.59L9.42 4.83c.21-.211.497-.33.795-.33H19.5a2.25 2.25 0 0 1 2.25 2.25v10.5a2.25 2.25 0 0 1-2.25 2.25h-9.284c-.298 0-.585-.119-.795-.33Z'
+													/>
+												</svg>
+											</span>
+											<span className='hidden sm:inline'>Usuń</span>
 										</button>
 										<button className='py-[0.625rem] px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
-											Edytuj
+											<span className='sm:hidden'>
+												<svg
+													xmlns='http://www.w3.org/2000/svg'
+													fill='none'
+													viewBox='0 0 24 24'
+													strokeWidth={1.5}
+													stroke='currentColor'
+													className='size-5'>
+													<path
+														strokeLinecap='round'
+														strokeLinejoin='round'
+														d='m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125'
+													/>
+												</svg>
+											</span>
+											<span className='hidden sm:inline'>Edytuj</span>
 										</button>
 										<button className='py-[0.625rem] px-4 outline-gray-200'>
-											Dodaj pozycję menu
+											<span className='sm:hidden'>
+												<svg
+													xmlns='http://www.w3.org/2000/svg'
+													fill='none'
+													viewBox='0 0 24 24'
+													strokeWidth={1.5}
+													stroke='currentColor'
+													className='size-5'>
+													<path
+														strokeLinecap='round'
+														strokeLinejoin='round'
+														d='M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z'
+													/>
+												</svg>
+											</span>
+											<span className='hidden sm:inline'>
+												Dodaj{' '}
+												<span className='hidden md:inline'>pozycję menu</span>
+											</span>
 										</button>
 									</div>
 								</div>
