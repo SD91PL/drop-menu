@@ -64,7 +64,8 @@ export default function Test() {
 								<button className='flex justify-center items-center w-10 h-9 hover:scale-105 transition-transform outline-gray-200'>
 									<img
 										src='/icons/trash.svg'
-										alt='Anuluj'
+										alt=''
+										// Cancel or Clear
 									/>
 								</button>
 							</div>
