@@ -18,7 +18,7 @@ export default function Test() {
 									W tym menu nie ma jeszcze żadnych linków.
 								</p>
 							</div>
-							<button className='flex justify-center items-center gap-1 px-4 py-3 bg-[#7F56D9] hover:bg-[#6141a5] rounded-lg text-white text-sm font-semibold shadow-sm transition-colors'>
+							<button className='flex justify-center items-center gap-1 px-4 py-3 bg-[#7F56D9] hover:bg-[#6141a5] rounded-lg text-white text-sm font-semibold shadow-sm transition-colors outline-[#6141a5]'>
 								<img
 									src='/icons/plus-circle.svg'
 									alt=''
@@ -49,22 +49,22 @@ export default function Test() {
 							</div>
 
 							<div className='flex justify-start items-center gap-2 min-h-[79px] text-sm font-semibold'>
-								<button className='py-[0.625rem] px-4 border border-[#D0D5DD] rounded-lg text-[#344054] shadow-sm hover:shadow transition-shadow'>
+								<button className='py-[0.625rem] px-4 border border-[#D0D5DD] rounded-lg text-[#344054] shadow-sm hover:shadow focus:shadow outline-none transition-shadow'>
 									Anuluj
 								</button>
 								<button
 									type='submit'
-									className='py-[0.625rem] px-4 border border-[#D6BBFB] rounded-lg text-[#6941C6] shadow-sm hover:shadow transition-shadow'>
+									className='py-[0.625rem] px-4 border border-[#D6BBFB] rounded-lg text-[#6941C6] shadow-sm hover:shadow focus:shadow outline-none transition-shadow'>
 									Dodaj
 								</button>
 							</div>
 						</form>
 						<div className='min-w-[80px]'>
 							<div className='flex w-full justify-center'>
-								<button className='flex justify-center items-center w-10 h-9 hover:scale-105 transition-transform'>
+								<button className='flex justify-center items-center w-10 h-9 hover:scale-105 transition-transform outline-gray-200'>
 									<img
 										src='/icons/trash.svg'
-										alt=''
+										alt='Anuluj'
 									/>
 								</button>
 							</div>
@@ -72,9 +72,38 @@ export default function Test() {
 					</section>
 
 					{/* MENU - ITEM */}
-					<section className='w-full bg-[#F9FAFB] rounded-lg border border-[#EAECF0]'>
-						<div className='flex flex-col justify-center items-center gap-8 py-6'>
-							<p>MENU ITEM</p>
+					<section className='w-full rounded-lg border border-[#D0D5DD] overflow-hidden'>
+						<div className='flex flex-col'>
+							<div className='menu-items dnd-wrapper'>
+								<div className='flex justify-between items-center px-6 py-4 min-h-[79px] text-sm font-semibold bg-white border border-[#EAECF0]'>
+									<div className='flex'>
+										<button className='flex justify-center items-center w-10 h-10 hover:scale-105 transition-transform outline-gray-200 cursor-move'>
+											<img
+												src='/icons/move.svg'
+												alt='Grabber'
+											/>
+										</button>
+										<div className='flex flex-col'>
+											<p className='text-[#101828]'>Promocje</p>
+											<a
+												href='https://rc32141.redcart.pl/promocje'
+												target='_blank'
+												rel='noopener'
+												className='outline-gray-200'>
+												<p className='font-normal text-[#475467]'>
+													https://rc32141.redcart.pl/promocje
+												</p>
+											</a>
+										</div>
+									</div>
+									<div className='flex'>BUTTONS</div>
+								</div>
+							</div>
+							<div className='flex justify-start items-center px-4 sm:px-6 py-4 min-h-[79px] text-sm font-semibold'>
+								<button className='py-[0.625rem] px-4 bg-white border border-[#D0D5DD] rounded-lg text-[#344054] shadow-sm hover:shadow focus:shadow outline-none transition-shadow'>
+									Dodaj pozycję menu
+								</button>
+							</div>
 						</div>
 					</section>
 					{/* MENU - ITEM - EDIT STATE WITH FORM*/}
