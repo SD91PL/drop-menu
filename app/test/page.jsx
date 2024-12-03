@@ -1,4 +1,4 @@
-// Test - Just a graphical representation of the mockup from Figma using Tailwind CSS classes
+// test/page.jsx - Just a graphical representation of the mockup from Figma using Tailwind CSS classes
 
 export default function Test() {
 	return (
