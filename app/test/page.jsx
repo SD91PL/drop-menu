@@ -4,7 +4,7 @@ export default function Test() {
 	return (
 		<>
 			<p className='bg-[#6141a5] w-full text-center text-white'>TEST</p>
-			
+
 			<main className='container px-2 lg:px-4 xl:px-5'>
 				<div className='flex flex-col justify-center items-center'>
 					{/* MENU - EMPTY */}
@@ -28,7 +28,14 @@ export default function Test() {
 						</div>
 					</section>
 					{/* FORM */}
-					
+					<section className='mt-8 w-full bg-[#F9FAFB] rounded-md border border-[#EAECF0]'>
+						<div className='flex flex-col justify-center items-center gap-8 py-6'>
+							
+						</div>
+					</section>
+					{/* MENU - ITEM */}
+					{/* MENU - ITEM - EDIT STATE WITH FORM*/}
+					{/* MENU - ITEM - WITH NESTED ITEMS*/}
 				</div>
 			</main>
 		</>
