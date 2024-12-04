@@ -5,7 +5,7 @@ export default function NotFound() {
 				<img
 					className='grayscale'
 					src='/logo.png'
-					alt='Droplo Menu or Drop Menu logotype'
+					alt='Drop Menu logotype'
 				/>
 				<div className='flex gap-2'>
 					<p>404</p>

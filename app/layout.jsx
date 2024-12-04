@@ -1,7 +1,7 @@
 import './globals.css'
 
 export const metadata = {
-	title: 'Droplo - Menu',
+	title: 'Drop - Menu',
 	description: 'Project created by SD91PL for droplo.com recruitment process.',
 }
 

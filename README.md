@@ -1,4 +1,4 @@
-# Droplo-Menu
+# Drop - Menu
 
 ## Next.js 15 (based on React.js 18) 
 ### Tailwind CSS + dnd-kit + React Hook Form + Zod
