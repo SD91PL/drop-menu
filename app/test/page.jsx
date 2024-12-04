@@ -5,10 +5,10 @@ export default function Test() {
 		<>
 			<p className='bg-[#6141a5] w-full text-center text-white'>TEST</p>
 
-			<main className='container px-2 lg:px-4 xl:px-5'>
+			<main className='container px-2 py-8 lg:px-4 xl:px-5'>
 				<div className='flex flex-col justify-center items-center gap-7'>
 					{/* MENU - EMPTY */}
-					<section className='mt-8 w-full bg-[#F9FAFB] rounded-lg border border-[#EAECF0]'>
+					<section className='w-full bg-[#F9FAFB] rounded-lg border border-[#EAECF0]'>
 						<div className='flex flex-col justify-center items-center gap-6 py-6'>
 							<div className='flex flex-col justify-center items-center text-center'>
 								<p className='text-base text-[#101828] font-semibold'>
@@ -30,7 +30,7 @@ export default function Test() {
 
 					{/* FORM */}
 					<section className='flex pt-[1.1875rem] w-full bg-[#FFFFFF] rounded-lg border border-[#D0D5DD]'>
-						<form className='flex flex-col w-full pl-4 sm:pl-6'>
+						<form className='flex flex-col w-full px-4 sm:px-0 sm:pl-6'>
 							<div className='flex flex-col gap-2 '>
 								<div className='flex flex-col text-sm gap-1'>
 									<div className='flex gap-2'>
@@ -59,7 +59,7 @@ export default function Test() {
 								</button>
 							</div>
 						</form>
-						<div className='min-w-[60px] sm:min-w-[80px]'>
+						<div className='hidden sm:block min-w-[60px] sm:min-w-[80px]'>
 							<div className='flex w-full justify-center'>
 								<button className='flex justify-center items-center w-10 h-9 hover:scale-105 transition-transform outline-gray-200'>
 									<img
@@ -75,62 +75,65 @@ export default function Test() {
 					{/* MENU - ITEM */}
 					<section className='w-full rounded-lg border border-[#D0D5DD] overflow-hidden'>
 						<div className='flex flex-col'>
-							<div className='menu-items dnd-wrapper'>
-								<div className='flex justify-between items-center px-4 sm:px-6 py-4 min-h-[79px] text-sm font-semibold bg-white border border-[#EAECF0]'>
-									<div className='flex'>
-										<button className='flex justify-center items-center w-10 h-10 hover:scale-105 transition-transform outline-gray-200 cursor-move'>
-											<img
-												src='/icons/move.svg'
-												alt='Grabber'
-											/>
-										</button>
-										<div className='flex flex-col'>
-											<p className='text-[#101828]'>Promocje</p>
-											<a
-												href='https://rc32141.redcart.pl/promocje'
-												target='_blank'
-												rel='noopener'
-												className='outline-gray-200'>
-												<p className='font-normal text-[#475467]'>
-													<span className='md:hidden'>Link</span>
-													<span className='hidden md:inline'>
-														https://rc32141.redcart.pl/promocje
-													</span>
-												</p>
-											</a>
+							<ul className='menu-items dnd-wrapper'>
+								<li className='flex flex-col'>
+									<div className='flex justify-between items-center px-4 sm:px-6 py-4 min-h-[79px] text-sm font-semibold bg-white border border-[#EAECF0]'>
+										<div className='flex'>
+											<button className='flex justify-center items-center w-10 h-10 hover:scale-105 transition-transform outline-gray-200 cursor-move'>
+												<img
+													src='/icons/move.svg'
+													alt='Grabber'
+												/>
+											</button>
+											<div className='flex flex-col'>
+												<p className='text-[#101828]'>Promocje</p>
+												<a
+													href='https://rc32141.redcart.pl/promocje'
+													target='_blank'
+													rel='noopener'
+													className='outline-gray-200'>
+													<p className='font-normal text-[#475467]'>
+														<span className='md:hidden'>Link</span>
+														<span className='hidden md:inline'>
+															https://rc32141.redcart.pl/promocje
+														</span>
+													</p>
+												</a>
+											</div>
+										</div>
+										<div className='flex ml-2 text-[#344054] border border-[#D0D5DD] rounded-lg overflow-clip'>
+											<button className='py-[0.625rem] px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
+												<img
+													src='/icons/remove.svg'
+													alt='Usuń'
+													className='sm:hidden size-5'
+												/>
+												<span className='hidden sm:inline'>Usuń</span>
+											</button>
+											<button className='py-[0.625rem] px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
+												<img
+													src='/icons/edit.svg'
+													alt='Edytuj'
+													className='sm:hidden size-5'
+												/>
+												<span className='hidden sm:inline'>Edytuj</span>
+											</button>
+											<button className='py-[0.625rem] px-4 outline-gray-200'>
+												<img
+													src='/icons/add.svg'
+													alt='Dodaj'
+													className='sm:hidden size-5'
+												/>
+												<span className='hidden sm:inline'>
+													Dodaj{' '}
+													<span className='hidden md:inline'>pozycję menu</span>
+												</span>
+											</button>
 										</div>
 									</div>
-									<div className='flex ml-2 text-[#344054] border border-[#D0D5DD] rounded-lg overflow-clip'>
-										<button className='py-[0.625rem] px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
-											<img
-												src='/icons/remove.svg'
-												alt='Usuń'
-												className='sm:hidden size-5'
-											/>
-											<span className='hidden sm:inline'>Usuń</span>
-										</button>
-										<button className='py-[0.625rem] px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
-											<img
-												src='/icons/edit.svg'
-												alt='Edytuj'
-												className='sm:hidden size-5'
-											/>
-											<span className='hidden sm:inline'>Edytuj</span>
-										</button>
-										<button className='py-[0.625rem] px-4 outline-gray-200'>
-											<img
-												src='/icons/add.svg'
-												alt='Dodaj'
-												className='sm:hidden size-5'
-											/>
-											<span className='hidden sm:inline'>
-												Dodaj{' '}
-												<span className='hidden md:inline'>pozycję menu</span>
-											</span>
-										</button>
-									</div>
-								</div>
-							</div>
+									{/* EDIT STATE - DISABLED */}
+								</li>
+							</ul>
 							<div className='flex justify-start items-center px-4 sm:px-6 py-4 min-h-[79px] text-sm font-semibold'>
 								<button className='py-[0.625rem] px-4 bg-white border border-[#D0D5DD] rounded-lg text-[#344054] shadow-sm hover:shadow focus:shadow outline-none transition-shadow'>
 									Dodaj pozycję menu
@@ -138,8 +141,382 @@ export default function Test() {
 							</div>
 						</div>
 					</section>
-					{/* MENU - ITEM - EDIT STATE WITH FORM*/}
-					{/* MENU - ITEM - WITH NESTED ITEMS*/}
+
+					{/* MENU - ITEM - EDIT STATE WITH FORM */}
+					<section className='w-full rounded-lg border border-[#D0D5DD] overflow-hidden'>
+						<div className='flex flex-col'>
+							{/* EDIT STATE */}
+							<ul className='menu-items dnd-wrapper'>
+								<li className='flex flex-col'>
+									<div className='flex justify-between items-center px-4 sm:px-6 py-4 min-h-[79px] text-sm font-semibold bg-white border border-[#EAECF0]'>
+										<div className='flex'>
+											<button className='flex justify-center items-center w-10 h-10 hover:scale-105 transition-transform outline-gray-200 cursor-move'>
+												<img
+													src='/icons/move.svg'
+													alt='Grabber'
+												/>
+											</button>
+											<div className='flex flex-col'>
+												<p className='text-[#101828]'>Promocje</p>
+												<a
+													href='https://rc32141.redcart.pl/promocje'
+													target='_blank'
+													rel='noopener'
+													className='outline-gray-200'>
+													<p className='font-normal text-[#475467]'>
+														<span className='md:hidden'>Link</span>
+														<span className='hidden md:inline'>
+															https://rc32141.redcart.pl/promocje
+														</span>
+													</p>
+												</a>
+											</div>
+										</div>
+										<div className='flex ml-2 text-[#344054] border border-[#D0D5DD] rounded-lg overflow-clip'>
+											<button className='py-[0.625rem] px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
+												<img
+													src='/icons/remove.svg'
+													alt='Usuń'
+													className='sm:hidden size-5'
+												/>
+												<span className='hidden sm:inline'>Usuń</span>
+											</button>
+											<button className='py-[0.625rem] px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
+												<img
+													src='/icons/edit.svg'
+													alt='Edytuj'
+													className='sm:hidden size-5'
+												/>
+												<span className='hidden sm:inline'>Edytuj</span>
+											</button>
+											<button className='py-[0.625rem] px-4 outline-gray-200'>
+												<img
+													src='/icons/add.svg'
+													alt='Dodaj'
+													className='sm:hidden size-5'
+												/>
+												<span className='hidden sm:inline'>
+													Dodaj{' '}
+													<span className='hidden md:inline'>pozycję menu</span>
+												</span>
+											</button>
+										</div>
+									</div>
+									{/* EDIT STATE - FORM */}
+									<div className='py-2 px-1 sm:py-4 sm:px-6 w-full bg-[#F9FAFB] border-b border-b-[#EAECF0]'>
+										{/* COPIED FORM COMPONENT */}
+										<section className='flex pt-[1.1875rem] w-full bg-[#FFFFFF] rounded-lg border border-[#D0D5DD]'>
+											<form className='flex flex-col w-full px-4 sm:px-0 sm:pl-6'>
+												<div className='flex flex-col gap-2 '>
+													<div className='flex flex-col text-sm gap-1'>
+														<div className='flex gap-2'>
+															<label className='text-[#344054] font-medium'>
+																Nazwa
+															</label>
+															<p className='text-red-500 opacity-0'>Error</p>
+														</div>
+														<input className='py-2 px-3 border border-[#D0D5DD] rounded-lg text-[#667085] text-base outline-none shadow-sm focus:shadow transition-shadow' />
+													</div>
+													<div className='flex flex-col text-sm gap-1'>
+														<div className='flex gap-2'>
+															<label className='text-[#344054] font-medium'>
+																Link
+															</label>
+															<p className='text-red-500 opacity-0'>Error</p>
+														</div>
+														<input className='py-2 px-3 border border-[#D0D5DD] rounded-lg text-[#667085] text-base outline-none shadow-sm focus:shadow transition-shadow' />
+													</div>
+												</div>
+
+												<div className='flex justify-start items-center gap-2 min-h-[79px] text-sm font-semibold'>
+													<button className='py-[0.625rem] px-4 border border-[#D0D5DD] rounded-lg text-[#344054] shadow-sm hover:shadow focus:shadow outline-none transition-shadow'>
+														Anuluj
+													</button>
+													<button
+														type='submit'
+														className='py-[0.625rem] px-4 border border-[#D6BBFB] rounded-lg text-[#6941C6] shadow-sm hover:shadow focus:shadow outline-none transition-shadow'>
+														Edytuj
+													</button>
+												</div>
+											</form>
+											<div className='hidden sm:block min-w-[60px] sm:min-w-[80px]'>
+												<div className='flex w-full justify-center'>
+													<button className='flex justify-center items-center w-10 h-9 hover:scale-105 transition-transform outline-gray-200'>
+														<img
+															src='/icons/trash.svg'
+															alt=''
+															// Cancel or Clear
+														/>
+													</button>
+												</div>
+											</div>
+										</section>
+									</div>
+								</li>
+							</ul>
+							{/* */}
+							<div className='flex justify-start items-center px-4 sm:px-6 py-4 min-h-[79px] text-sm font-semibold'>
+								<button className='py-[0.625rem] px-4 bg-white border border-[#D0D5DD] rounded-lg text-[#344054] shadow-sm hover:shadow focus:shadow outline-none transition-shadow'>
+									Dodaj pozycję menu
+								</button>
+							</div>
+						</div>
+					</section>
+
+					{/* MENU - ITEM - ADDING STATE */}
+					<section className='w-full rounded-lg border border-[#D0D5DD] overflow-hidden'>
+						<div className='flex flex-col'>
+							<ul className='menu-items dnd-wrapper'>
+								<li className='flex flex-col'>
+									<div className='flex justify-between items-center px-4 sm:px-6 py-4 min-h-[79px] text-sm font-semibold bg-white border border-[#EAECF0]'>
+										<div className='flex'>
+											<button className='flex justify-center items-center w-10 h-10 hover:scale-105 transition-transform outline-gray-200 cursor-move'>
+												<img
+													src='/icons/move.svg'
+													alt='Grabber'
+												/>
+											</button>
+											<div className='flex flex-col'>
+												<p className='text-[#101828]'>Promocje</p>
+												<a
+													href='https://rc32141.redcart.pl/promocje'
+													target='_blank'
+													rel='noopener'
+													className='outline-gray-200'>
+													<p className='font-normal text-[#475467]'>
+														<span className='md:hidden'>Link</span>
+														<span className='hidden md:inline'>
+															https://rc32141.redcart.pl/promocje
+														</span>
+													</p>
+												</a>
+											</div>
+										</div>
+										<div className='flex ml-2 text-[#344054] border border-[#D0D5DD] rounded-lg overflow-clip'>
+											<button className='py-[0.625rem] px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
+												<img
+													src='/icons/remove.svg'
+													alt='Usuń'
+													className='sm:hidden size-5'
+												/>
+												<span className='hidden sm:inline'>Usuń</span>
+											</button>
+											<button className='py-[0.625rem] px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
+												<img
+													src='/icons/edit.svg'
+													alt='Edytuj'
+													className='sm:hidden size-5'
+												/>
+												<span className='hidden sm:inline'>Edytuj</span>
+											</button>
+											<button className='py-[0.625rem] px-4 outline-gray-200'>
+												<img
+													src='/icons/add.svg'
+													alt='Dodaj'
+													className='sm:hidden size-5'
+												/>
+												<span className='hidden sm:inline'>
+													Dodaj{' '}
+													<span className='hidden md:inline'>pozycję menu</span>
+												</span>
+											</button>
+										</div>
+									</div>
+								</li>
+							</ul>
+							{/* ADDING STATE - FORM */}
+							<div className='py-2 px-1 sm:py-4 sm:px-6 w-full bg-[#F9FAFB] border-b border-b-[#EAECF0]'>
+								{/* COPIED FORM COMPONENT */}
+								<section className='flex pt-[1.1875rem] w-full bg-[#FFFFFF] rounded-lg border border-[#D0D5DD]'>
+									<form className='flex flex-col w-full px-4 sm:px-0 sm:pl-6'>
+										<div className='flex flex-col gap-2 '>
+											<div className='flex flex-col text-sm gap-1'>
+												<div className='flex gap-2'>
+													<label className='text-[#344054] font-medium'>
+														Nazwa
+													</label>
+													<p className='text-red-500 opacity-0'>Error</p>
+												</div>
+												<input className='py-2 px-3 border border-[#D0D5DD] rounded-lg text-[#667085] text-base outline-none shadow-sm focus:shadow transition-shadow' />
+											</div>
+											<div className='flex flex-col text-sm gap-1'>
+												<div className='flex gap-2'>
+													<label className='text-[#344054] font-medium'>
+														Link
+													</label>
+													<p className='text-red-500 opacity-0'>Error</p>
+												</div>
+												<input className='py-2 px-3 border border-[#D0D5DD] rounded-lg text-[#667085] text-base outline-none shadow-sm focus:shadow transition-shadow' />
+											</div>
+										</div>
+
+										<div className='flex justify-start items-center gap-2 min-h-[79px] text-sm font-semibold'>
+											<button className='py-[0.625rem] px-4 border border-[#D0D5DD] rounded-lg text-[#344054] shadow-sm hover:shadow focus:shadow outline-none transition-shadow'>
+												Anuluj
+											</button>
+											<button
+												type='submit'
+												className='py-[0.625rem] px-4 border border-[#D6BBFB] rounded-lg text-[#6941C6] shadow-sm hover:shadow focus:shadow outline-none transition-shadow'>
+												Dodaj
+											</button>
+										</div>
+									</form>
+									<div className='hidden sm:block min-w-[60px] sm:min-w-[80px]'>
+										<div className='flex w-full justify-center'>
+											<button className='flex justify-center items-center w-10 h-9 hover:scale-105 transition-transform outline-gray-200'>
+												<img
+													src='/icons/trash.svg'
+													alt=''
+													// Cancel or Clear
+												/>
+											</button>
+										</div>
+									</div>
+								</section>
+							</div>
+							{/*  */}
+							<div className='flex justify-start items-center px-4 sm:px-6 py-4 min-h-[79px] text-sm font-semibold'>
+								<button className='py-[0.625rem] px-4 bg-white border border-[#D0D5DD] rounded-lg text-[#344054] shadow-sm hover:shadow focus:shadow outline-none transition-shadow'>
+									Dodaj pozycję menu
+								</button>
+							</div>
+						</div>
+					</section>
+
+					{/* MENU - ITEM - WITH NESTED ITEMS */}
+					<section className='w-full rounded-lg border border-[#D0D5DD] overflow-hidden'>
+						<div className='flex flex-col'>
+							<ul className='menu-items dnd-wrapper'>
+								<li className='flex flex-col'>
+									<div className='flex justify-between items-center px-4 sm:px-6 py-4 min-h-[79px] text-sm font-semibold bg-white border border-[#EAECF0]'>
+										<div className='flex'>
+											<button className='flex justify-center items-center w-10 h-10 hover:scale-105 transition-transform outline-gray-200 cursor-move'>
+												<img
+													src='/icons/move.svg'
+													alt='Grabber'
+												/>
+											</button>
+											<div className='flex flex-col'>
+												<p className='text-[#101828]'>Promocje</p>
+												<a
+													href='https://rc32141.redcart.pl/promocje'
+													target='_blank'
+													rel='noopener'
+													className='outline-gray-200'>
+													<p className='font-normal text-[#475467]'>
+														<span className='md:hidden'>Link</span>
+														<span className='hidden md:inline'>
+															https://rc32141.redcart.pl/promocje
+														</span>
+													</p>
+												</a>
+											</div>
+										</div>
+										<div className='flex ml-2 text-[#344054] border border-[#D0D5DD] rounded-lg overflow-clip'>
+											<button className='py-[0.625rem] px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
+												<img
+													src='/icons/remove.svg'
+													alt='Usuń'
+													className='sm:hidden size-5'
+												/>
+												<span className='hidden sm:inline'>Usuń</span>
+											</button>
+											<button className='py-[0.625rem] px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
+												<img
+													src='/icons/edit.svg'
+													alt='Edytuj'
+													className='sm:hidden size-5'
+												/>
+												<span className='hidden sm:inline'>Edytuj</span>
+											</button>
+											<button className='py-[0.625rem] px-4 outline-gray-200'>
+												<img
+													src='/icons/add.svg'
+													alt='Dodaj'
+													className='sm:hidden size-5'
+												/>
+												<span className='hidden sm:inline'>
+													Dodaj{' '}
+													<span className='hidden md:inline'>pozycję menu</span>
+												</span>
+											</button>
+										</div>
+									</div>
+								</li>
+								{/* SECOND ITEM */}
+								<li className='flex flex-col'>
+									<div className='flex justify-between items-center px-4 sm:px-6 py-4 min-h-[79px] text-sm font-semibold bg-white border border-[#EAECF0]'>
+										<div className='flex'>
+											<button className='flex justify-center items-center w-10 h-10 hover:scale-105 transition-transform outline-gray-200 cursor-move'>
+												<img
+													src='/icons/move.svg'
+													alt='Grabber'
+												/>
+											</button>
+											<div className='flex flex-col'>
+												<p className='text-[#101828]'>Diamenty forbesa</p>
+												<a
+													href='https://www.forbes.pl/diamenty'
+													target='_blank'
+													rel='noopener'
+													className='outline-gray-200'>
+													<p className='font-normal text-[#475467]'>
+														<span className='md:hidden'>Link</span>
+														<span className='hidden md:inline'>
+															https://www.forbes.pl/diamenty
+														</span>
+													</p>
+												</a>
+											</div>
+										</div>
+										<div className='flex ml-2 text-[#344054] border border-[#D0D5DD] rounded-lg overflow-clip'>
+											<button className='py-[0.625rem] px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
+												<img
+													src='/icons/remove.svg'
+													alt='Usuń'
+													className='sm:hidden size-5'
+												/>
+												<span className='hidden sm:inline'>Usuń</span>
+											</button>
+											<button className='py-[0.625rem] px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
+												<img
+													src='/icons/edit.svg'
+													alt='Edytuj'
+													className='sm:hidden size-5'
+												/>
+												<span className='hidden sm:inline'>Edytuj</span>
+											</button>
+											<button className='py-[0.625rem] px-4 outline-gray-200'>
+												<img
+													src='/icons/add.svg'
+													alt='Dodaj'
+													className='sm:hidden size-5'
+												/>
+												<span className='hidden sm:inline'>
+													Dodaj{' '}
+													<span className='hidden md:inline'>pozycję menu</span>
+												</span>
+											</button>
+										</div>
+									</div>
+								</li>
+								{/*  */}
+							</ul>
+							<div className='flex justify-start items-center px-4 sm:px-6 py-4 min-h-[79px] text-sm font-semibold'>
+								<button className='py-[0.625rem] px-4 bg-white border border-[#D0D5DD] rounded-lg text-[#344054] shadow-sm hover:shadow focus:shadow outline-none transition-shadow'>
+									Dodaj pozycję menu
+								</button>
+							</div>
+						</div>
+					</section>
+
+					{/* MENU - ITEM - WITH NESTED ITEMS - ADDING NESTED IN NESTED */}
+
+					{/* MENU - ITEM - WITH NESTED ITEMS - NESTED IN NESTED */}
+					
+					{/* MENU - ITEM - WITH NESTED ITEMS - NESTED IN NESTED IN NESTED*/}
+					
+
 				</div>
 			</main>
 		</>
