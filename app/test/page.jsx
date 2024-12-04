@@ -102,57 +102,27 @@ export default function Test() {
 									</div>
 									<div className='flex ml-2 text-[#344054] border border-[#D0D5DD] rounded-lg overflow-clip'>
 										<button className='py-[0.625rem] px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
-											<span className='sm:hidden'>
-												<svg
-													xmlns='http://www.w3.org/2000/svg'
-													fill='none'
-													viewBox='0 0 24 24'
-													strokeWidth={1.5}
-													stroke='currentColor'
-													className='size-5'>
-													<path
-														strokeLinecap='round'
-														strokeLinejoin='round'
-														d='M12 9.75 14.25 12m0 0 2.25 2.25M14.25 12l2.25-2.25M14.25 12 12 14.25m-2.58 4.92-6.374-6.375a1.125 1.125 0 0 1 0-1.59L9.42 4.83c.21-.211.497-.33.795-.33H19.5a2.25 2.25 0 0 1 2.25 2.25v10.5a2.25 2.25 0 0 1-2.25 2.25h-9.284c-.298 0-.585-.119-.795-.33Z'
-													/>
-												</svg>
-											</span>
+											<img
+												src='/icons/remove.svg'
+												alt='Usuń'
+												className='sm:hidden size-5'
+											/>
 											<span className='hidden sm:inline'>Usuń</span>
 										</button>
 										<button className='py-[0.625rem] px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
-											<span className='sm:hidden'>
-												<svg
-													xmlns='http://www.w3.org/2000/svg'
-													fill='none'
-													viewBox='0 0 24 24'
-													strokeWidth={1.5}
-													stroke='currentColor'
-													className='size-5'>
-													<path
-														strokeLinecap='round'
-														strokeLinejoin='round'
-														d='m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125'
-													/>
-												</svg>
-											</span>
+											<img
+												src='/icons/edit.svg'
+												alt='Edytuj'
+												className='sm:hidden size-5'
+											/>
 											<span className='hidden sm:inline'>Edytuj</span>
 										</button>
 										<button className='py-[0.625rem] px-4 outline-gray-200'>
-											<span className='sm:hidden'>
-												<svg
-													xmlns='http://www.w3.org/2000/svg'
-													fill='none'
-													viewBox='0 0 24 24'
-													strokeWidth={1.5}
-													stroke='currentColor'
-													className='size-5'>
-													<path
-														strokeLinecap='round'
-														strokeLinejoin='round'
-														d='M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z'
-													/>
-												</svg>
-											</span>
+											<img
+												src='/icons/add.svg'
+												alt='Dodaj'
+												className='sm:hidden size-5'
+											/>
 											<span className='hidden sm:inline'>
 												Dodaj{' '}
 												<span className='hidden md:inline'>pozycję menu</span>
