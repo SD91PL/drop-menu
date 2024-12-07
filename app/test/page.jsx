@@ -28,7 +28,7 @@ export default function Test() {
 						</div>
 					</section>
 
-					{/* FORM */}
+					{/* MENU - FORM */}
 					<section className='flex pt-[1.1875rem] w-full bg-[#FFFFFF] rounded-lg border border-[#D0D5DD]'>
 						<form className='flex flex-col w-full px-4 sm:px-0 sm:pl-6'>
 							<div className='flex flex-col gap-2 '>
