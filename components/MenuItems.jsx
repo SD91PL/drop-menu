@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import MenuWrapper from './MenuWrapper'
 import MenuItem from './MenuItem'
+import MenuForm from './MenuForm'
 
 export default function MenuItems({
 	items,
@@ -8,9 +10,20 @@ export default function MenuItems({
 	onEdit,
 	onAddNested,
 }) {
+	const [isFormVisible, setIsFormVisible] = useState(false) // Control form visibility
+
+	// Function to handle adding a new item from the form
+	const handleAddItem = data => {
+		setItems(prev => [
+			...prev,
+			{ id: crypto.randomUUID(), ...data, nested: [] },
+		])
+		setIsFormVisible(false) // Hide the form after adding
+	}
+
 	return (
 		<section className='w-full bg-[#f9fafb] rounded-lg border border-[#D0D5DD] overflow-hidden'>
-			<ul className='flex flex-col'>
+			<div className='flex flex-col'>
 				<MenuWrapper
 					items={items}
 					setItems={setItems}>
@@ -26,7 +39,25 @@ export default function MenuItems({
 						/>
 					))}
 				</MenuWrapper>
-			</ul>
+
+				{/* Conditionally render the form */}
+				{isFormVisible && (
+					<div className='py-2 px-1 sm:py-4 sm:px-6 w-full bg-[#F9FAFB] border-t border-b-[#EAECF0]'>
+						<MenuForm
+							onSubmit={handleAddItem} // Handle form submission
+							onCancel={() => setIsFormVisible(false)} // Hide form on cancel
+						/>
+					</div>
+				)}
+
+				<div className='flex justify-start items-center px-4 sm:px-6 py-4 min-h-[79px] bg-[#f5f5f5] text-sm font-semibold border-t border-t-[#EAECF0]'>
+					<button
+						onClick={() => setIsFormVisible(true)} // Show the form
+						className='py-[0.625rem] px-4 bg-white border border-[#D0D5DD] rounded-lg text-[#344054] shadow-sm hover:shadow focus:shadow outline-none transition-shadow'>
+						Dodaj pozycję menu
+					</button>
+				</div>
+			</div>
 		</section>
 	)
 }

@@ -20,16 +20,18 @@ export default function MenuWrapper({ children, items, setItems }) {
 	}
 
 	return (
-		<DndContext
-			collisionDetection={closestCenter}
-			onDragEnd={handleDragEnd}
-			modifiers={[restrictToVerticalAxis]} // Restrict movement to the vertical axis
-		>
-			<SortableContext
-				items={items.map(item => item.id)}
-				strategy={verticalListSortingStrategy}>
-				{children}
-			</SortableContext>
-		</DndContext>
+		<ul className='overflow-hidden'>
+			<DndContext
+				collisionDetection={closestCenter}
+				onDragEnd={handleDragEnd}
+				modifiers={[restrictToVerticalAxis]} // Restrict movement to the vertical axis
+			>
+				<SortableContext
+					items={items.map(item => item.id)}
+					strategy={verticalListSortingStrategy}>
+					{children}
+				</SortableContext>
+			</DndContext>
+		</ul>
 	)
 }

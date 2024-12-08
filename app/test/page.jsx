@@ -202,7 +202,7 @@ export default function Test() {
 											</button>
 										</div>
 									</div>
-									{/* EDIT STATE - FORM */}
+									{/* EDIT STATE - FORM - start */}
 									<div className='py-2 px-1 sm:py-4 sm:px-6 w-full bg-[#F9FAFB] border-b border-b-[#EAECF0]'>
 										{/* COPIED FORM COMPONENT */}
 										<section className='flex pt-[1.1875rem] w-full bg-[#FFFFFF] rounded-lg border border-[#D0D5DD]'>
@@ -252,6 +252,7 @@ export default function Test() {
 											</div>
 										</section>
 									</div>
+									{/* EDIT STATE - FORM - end */}
 								</li>
 							</ul>
 							{/* */}
