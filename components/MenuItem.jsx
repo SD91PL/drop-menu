@@ -51,7 +51,7 @@ export default function MenuItem({
 				{/* MenuItem Buttons - start */}
 				<div className='flex ml-2 text-[#344054] border border-[#D0D5DD] rounded-lg overflow-clip'>
 					<button
-						onClick={() => onRemove(id)}
+						onClick={() => onRemove(id)} // Call remove handler
 						className='p-[0.625rem] px-3 sm:px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
 						<img
 							src='/icons/remove.svg'
