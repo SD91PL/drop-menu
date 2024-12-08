@@ -7,7 +7,12 @@ const schema = z.object({
 	link: z.string().url('Podaj poprawny URL'),
 })
 
-export default function MenuForm({ onSubmit, onCancel, defaultValues }) {
+export default function MenuForm({
+	onSubmit,
+	onCancel,
+	defaultValues,
+	isEditing,
+}) {
 	const {
 		register,
 		handleSubmit,
@@ -24,7 +29,7 @@ export default function MenuForm({ onSubmit, onCancel, defaultValues }) {
 	}
 
 	const handleClearFields = () => {
-		reset() // Reset form fields
+		reset({ name: '', link: '' }) // Reset fields to empty strings
 	}
 
 	return (
@@ -50,24 +55,27 @@ export default function MenuForm({ onSubmit, onCancel, defaultValues }) {
 						<p className='text-red-500'>{errors.link?.message}</p>
 					</div>
 				</div>
-				<div className='flex justify-start items-center gap-2 min-h-[79px] text-sm font-semibold'>
-					<button
-						type='button'
-						onClick={onCancel}
-						className='py-[0.625rem] px-4 border border-[#D0D5DD] rounded-lg text-[#344054] shadow-sm hover:shadow focus:shadow outline-none transition-shadow'>
-						Anuluj
-					</button>
-					<button
-						type='submit'
-						className='py-[0.625rem] px-4 border border-[#D6BBFB] rounded-lg text-[#6941C6] shadow-sm hover:shadow focus:shadow outline-none transition-shadow'>
-						Dodaj
-					</button>
+				<div className='flex justify-between items-center min-h-[79px] text-sm font-semibold'>
+					<div className='flex gap-2'>
+						<button
+							type='button'
+							onClick={onCancel}
+							className='py-[0.625rem] px-4 border border-[#D0D5DD] rounded-lg text-[#344054] shadow-sm hover:shadow focus:shadow outline-none transition-shadow'>
+							Anuluj
+						</button>
+						<button
+							type='submit'
+							className='py-[0.625rem] px-4 border border-[#D6BBFB] rounded-lg text-[#6941C6] shadow-sm hover:shadow focus:shadow outline-none transition-shadow'>
+							{isEditing ? 'Edytuj' : 'Dodaj'}
+						</button>
+					</div>
 				</div>
 			</form>
 			{/* Clearing form fields - start */}
 			<div className='hidden sm:block min-w-[60px] sm:min-w-[80px]'>
 				<div className='flex w-full justify-center'>
 					<button
+						type='button'
 						onClick={handleClearFields}
 						className='flex justify-center items-center w-10 h-9 hover:scale-105 transition-transform outline-gray-200'>
 						<img

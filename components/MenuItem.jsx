@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
+import MenuForm from './MenuForm'
 
 export default function MenuItem({
 	id,
@@ -9,12 +11,19 @@ export default function MenuItem({
 	onEdit,
 	onAddNested,
 }) {
+	const [isEditing, setIsEditing] = useState(false) // Control edit state
+
 	const { attributes, listeners, setNodeRef, transform, transition } =
 		useSortable({ id })
 
 	const style = {
 		transform: CSS.Transform.toString(transform),
 		transition,
+	}
+
+	const handleEditSubmit = data => {
+		onEdit(id, data) // Trigger the edit handler
+		setIsEditing(false) // Exit edit mode
 	}
 
 	return (
@@ -61,7 +70,7 @@ export default function MenuItem({
 						<span className='hidden sm:inline'>Usuń</span>
 					</button>
 					<button
-						onClick={() => onEdit(id)}
+						onClick={() => setIsEditing(prev => !prev)} // Toggle edit mode
 						className='p-[0.625rem] px-3 sm:px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
 						<img
 							src='/icons/edit.svg'
@@ -85,6 +94,18 @@ export default function MenuItem({
 				</div>
 				{/* MenuItem Buttons - end */}
 			</div>
+
+			{/* Edit form */}
+			{isEditing && (
+				<div className='py-2 px-1 sm:py-4 sm:px-6 w-full bg-[#F9FAFB] border-b border-b-[#EAECF0]'>
+					<MenuForm
+						defaultValues={{ name, link }} // Pass initial values for the form
+						onSubmit={handleEditSubmit} // Handle the form submission
+						onCancel={() => setIsEditing(false)} // Cancel editing
+						isEditing={true} // Indicate that the form is in edit mode
+					/>
+				</div>
+			)}
 		</li>
 	)
 }
