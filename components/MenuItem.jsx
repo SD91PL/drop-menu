@@ -3,17 +3,20 @@ import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import MenuForm from './MenuForm'
 import NestedWrapper from './NestedWrapper'
-import MenuWrapper from './MenuWrapper'
+import MenuItems from './MenuItems' // Import MenuItems to render nested items
 
 export default function MenuItem({
 	id,
 	name,
 	link,
+	nested = [],
 	onRemove,
 	onEdit,
 	onAddNested,
 }) {
 	const [isEditing, setIsEditing] = useState(false) // Control edit state
+	const [addingNestedItems, setAddingNestedItems] = useState(false) // Control nested items form visibility
+	const [nestedItems, setNestedItems] = useState(nested) // Store nested items
 
 	const { attributes, listeners, setNodeRef, transform, transition } =
 		useSortable({ id })
@@ -26,6 +29,15 @@ export default function MenuItem({
 	const handleEditSubmit = data => {
 		onEdit(id, data) // Trigger the edit handler
 		setIsEditing(false) // Exit edit mode
+	}
+
+	// Function to handle adding nested items
+	const handleAddNestedItem = data => {
+		setNestedItems(prev => [
+			...prev,
+			{ id: crypto.randomUUID(), ...data, nested: [] },
+		])
+		setAddingNestedItems(false) // Hide the nested items form
 	}
 
 	return (
@@ -82,7 +94,7 @@ export default function MenuItem({
 						<span className='hidden sm:inline'>Edytuj</span>
 					</button>
 					<button
-						onClick={() => onAddNested(id)}
+						onClick={() => setAddingNestedItems(prev => !prev)} // Toggle nested items form visibility
 						className='p-[0.625rem] px-3 sm:px-4 outline-gray-200'>
 						<img
 							src='/icons/add.svg'
@@ -111,15 +123,46 @@ export default function MenuItem({
 
 			<NestedWrapper>
 				{/* Adding Nested Items form - start */}
-				<div className='py-2 pr-2 sm:py-4 sm:pr-6 w-full'>
-					<MenuForm />
-				</div>
+				{addingNestedItems && (
+					<div className='py-2 pr-2 sm:py-4 sm:pr-6 w-full'>
+						<MenuForm
+							onSubmit={handleAddNestedItem} // Handle nested item addition
+							onCancel={() => setAddingNestedItems(false)} // Hide the form
+						/>
+					</div>
+				)}
 				{/* Adding Nested Items form - end */}
 
 				{/* Nested Items - start */}
-				{/* <MenuWrapper> */}
-				{/* Nested Items */}
-				{/* </MenuWrapper> */}
+				{nestedItems.length > 0 && (
+					<MenuItems
+						items={nestedItems}
+						setItems={setNestedItems}
+						onRemove={id => {
+							setNestedItems(prev => prev.filter(item => item.id !== id))
+						}}
+						onEdit={(id, data) => {
+							setNestedItems(prev =>
+								prev.map(item => (item.id === id ? { ...item, ...data } : item))
+							)
+						}}
+						onAddNested={(parentId, data) => {
+							setNestedItems(prev =>
+								prev.map(item =>
+									item.id === parentId
+										? {
+												...item,
+												nested: [
+													...item.nested,
+													{ id: crypto.randomUUID(), ...data },
+												],
+										  }
+										: item
+								)
+							)
+						}}
+					/>
+				)}
 				{/* Nested Items - end */}
 			</NestedWrapper>
 		</li>
