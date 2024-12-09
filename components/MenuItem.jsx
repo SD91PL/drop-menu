@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import MenuForm from './MenuForm'
+import NestedWrapper from './NestedWrapper'
+import MenuWrapper from './MenuWrapper'
 
 export default function MenuItem({
 	id,
@@ -97,7 +99,7 @@ export default function MenuItem({
 
 			{/* Edit form */}
 			{isEditing && (
-				<div className='py-2 px-1 sm:py-4 sm:px-6 w-full bg-[#F9FAFB] border-b border-b-[#EAECF0]'>
+				<div className='py-2 px-1 sm:py-4 sm:px-6 w-full'>
 					<MenuForm
 						defaultValues={{ name, link }} // Pass initial values for the form
 						onSubmit={handleEditSubmit} // Handle the form submission
@@ -106,6 +108,20 @@ export default function MenuItem({
 					/>
 				</div>
 			)}
+
+			<NestedWrapper>
+				{/* Adding Nested Items form - start */}
+				<div className='py-2 pr-2 sm:py-4 sm:pr-6 w-full'>
+					<MenuForm />
+				</div>
+				{/* Adding Nested Items form - end */}
+
+				{/* Nested Items - start */}
+				{/* <MenuWrapper> */}
+				{/* Nested Items */}
+				{/* </MenuWrapper> */}
+				{/* Nested Items - end */}
+			</NestedWrapper>
 		</li>
 	)
 }
