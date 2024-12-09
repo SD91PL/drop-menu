@@ -84,7 +84,10 @@ export default function MenuItem({
 						<span className='hidden sm:inline'>Usuń</span>
 					</button>
 					<button
-						onClick={() => setIsEditing(prev => !prev)} // Toggle edit mode
+						onClick={() => {
+							setIsEditing(prev => !prev) // Toggle edit mode
+							setAddingNestedItems(false) // Ensure nested items form is hidden when editing
+						}}
 						className='p-[0.625rem] px-3 sm:px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
 						<img
 							src='/icons/edit.svg'
@@ -94,7 +97,10 @@ export default function MenuItem({
 						<span className='hidden sm:inline'>Edytuj</span>
 					</button>
 					<button
-						onClick={() => setAddingNestedItems(prev => !prev)} // Toggle nested items form visibility
+						onClick={() => {
+							setAddingNestedItems(prev => !prev) // Toggle nested items form visibility
+							setIsEditing(false) // Ensure editing form is hidden when adding nested items
+						}}
 						className='p-[0.625rem] px-3 sm:px-4 outline-gray-200'>
 						<img
 							src='/icons/add.svg'
