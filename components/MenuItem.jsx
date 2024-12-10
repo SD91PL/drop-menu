@@ -3,7 +3,7 @@ import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import MenuForm from './MenuForm'
 import NestedWrapper from './NestedWrapper'
-import MenuItems from './MenuItems' // Import MenuItems to render nested items
+import MenuItems from './MenuItems'
 
 export default function MenuItem({
 	id,
@@ -14,9 +14,9 @@ export default function MenuItem({
 	onEdit,
 	onAddNested,
 }) {
-	const [isEditing, setIsEditing] = useState(false) // Control edit state
-	const [addingNestedItems, setAddingNestedItems] = useState(false) // Control nested items form visibility
-	const [nestedItems, setNestedItems] = useState(nested) // Store nested items
+	const [isEditing, setIsEditing] = useState(false)
+	const [addingNestedItems, setAddingNestedItems] = useState(false)
+	const [nestedItems, setNestedItems] = useState(nested)
 
 	const { attributes, listeners, setNodeRef, transform, transition } =
 		useSortable({ id })
@@ -27,17 +27,15 @@ export default function MenuItem({
 	}
 
 	const handleEditSubmit = data => {
-		onEdit(id, data) // Trigger the edit handler
-		setIsEditing(false) // Exit edit mode
+		onEdit(id, data)
+		setIsEditing(false)
 	}
 
-	// Function to handle adding nested items
 	const handleAddNestedItem = data => {
-		setNestedItems(prev => [
-			...prev,
-			{ id: crypto.randomUUID(), ...data, nested: [] },
-		])
-		setAddingNestedItems(false) // Hide the nested items form
+		const newNestedItem = { id: crypto.randomUUID(), ...data, nested: [] }
+		setNestedItems(prev => [...prev, newNestedItem])
+		onAddNested(id, newNestedItem) // Notify parent about nested item addition
+		setAddingNestedItems(false)
 	}
 
 	return (
@@ -50,8 +48,7 @@ export default function MenuItem({
 				<div className='flex'>
 					<button
 						className='flex justify-center items-center w-10 h-10 hover:scale-105 transition-transform outline-gray-200 cursor-move'
-						{...listeners} // Listening for dragging - dnd-kit
-					>
+						{...listeners}>
 						<img
 							src='/icons/move.svg'
 							alt='Grabber'
@@ -71,82 +68,63 @@ export default function MenuItem({
 						</a>
 					</div>
 				</div>
-				{/* MenuItem Buttons - start */}
+				{/* MenuItem Buttons */}
 				<div className='flex ml-2 text-[#344054] border border-[#D0D5DD] rounded-lg overflow-clip'>
 					<button
-						onClick={() => onRemove(id)} // Call remove handler
+						onClick={() => onRemove(id)}
 						className='p-[0.625rem] px-3 sm:px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
-						<img
-							src='/icons/remove.svg'
-							alt='Usuń'
-							className='sm:hidden size-5'
-						/>
-						<span className='hidden sm:inline'>Usuń</span>
+						Usuń
 					</button>
 					<button
 						onClick={() => {
-							setIsEditing(prev => !prev) // Toggle edit mode
-							setAddingNestedItems(false) // Ensure nested items form is hidden when editing
+							setIsEditing(prev => !prev)
+							setAddingNestedItems(false)
 						}}
 						className='p-[0.625rem] px-3 sm:px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
-						<img
-							src='/icons/edit.svg'
-							alt='Edytuj'
-							className='sm:hidden size-5'
-						/>
-						<span className='hidden sm:inline'>Edytuj</span>
+						Edytuj
 					</button>
 					<button
 						onClick={() => {
-							setAddingNestedItems(prev => !prev) // Toggle nested items form visibility
-							setIsEditing(false) // Ensure editing form is hidden when adding nested items
+							setAddingNestedItems(prev => !prev)
+							setIsEditing(false)
 						}}
 						className='p-[0.625rem] px-3 sm:px-4 outline-gray-200'>
-						<img
-							src='/icons/add.svg'
-							alt='Dodaj'
-							className='sm:hidden size-5'
-						/>
-						<span className='hidden sm:inline'>
-							Dodaj <span className='hidden md:inline'>pozycję menu</span>
-						</span>
+						Dodaj pozycję menu
 					</button>
 				</div>
-				{/* MenuItem Buttons - end */}
 			</div>
 
 			{/* Edit form */}
 			{isEditing && (
 				<div className='py-2 px-1 sm:py-4 sm:px-6 w-full'>
 					<MenuForm
-						defaultValues={{ name, link }} // Pass initial values for the form
-						onSubmit={handleEditSubmit} // Handle the form submission
-						onCancel={() => setIsEditing(false)} // Cancel editing
-						isEditing={true} // Indicate that the form is in edit mode
+						defaultValues={{ name, link }}
+						onSubmit={handleEditSubmit}
+						onCancel={() => setIsEditing(false)}
+						isEditing={true}
 					/>
 				</div>
 			)}
 
 			<NestedWrapper>
-				{/* Adding Nested Items form - start */}
+				{/* Adding Nested Items form */}
 				{addingNestedItems && (
 					<div className='py-2 pr-2 sm:py-4 sm:pr-6 w-full'>
 						<MenuForm
-							onSubmit={handleAddNestedItem} // Handle nested item addition
-							onCancel={() => setAddingNestedItems(false)} // Hide the form
+							onSubmit={handleAddNestedItem}
+							onCancel={() => setAddingNestedItems(false)}
 						/>
 					</div>
 				)}
-				{/* Adding Nested Items form - end */}
 
-				{/* Nested Items - start */}
+				{/* Nested Items */}
 				{nestedItems.length > 0 && (
 					<MenuItems
 						items={nestedItems}
 						setItems={setNestedItems}
-						onRemove={id => {
+						onRemove={id =>
 							setNestedItems(prev => prev.filter(item => item.id !== id))
-						}}
+						}
 						onEdit={(id, data) => {
 							setNestedItems(prev =>
 								prev.map(item => (item.id === id ? { ...item, ...data } : item))
@@ -169,7 +147,6 @@ export default function MenuItem({
 						}}
 					/>
 				)}
-				{/* Nested Items - end */}
 			</NestedWrapper>
 		</li>
 	)

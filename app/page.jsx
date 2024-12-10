@@ -8,9 +8,29 @@ import MenuEmpty from '@/components/MenuEmpty'
 export default function Page() {
 	const [items, setItems] = useState([
 		{ id: '1', name: 'Onet', link: 'https://www.onet.pl/', nested: [] },
-		{ id: '2', name: 'WP', link: 'https://www.wp.pl/', nested: [] },
+		{
+			id: '2',
+			name: 'WP',
+			link: 'https://www.wp.pl/',
+			nested: [
+				{ id: '4', name: 'Bang', link: 'https://www.bang.pl/', nested: [] },
+				{
+					id: '5',
+					name: 'Pozdro',
+					link: 'https://www.Pozdro.com/',
+					nested: [
+						{
+							id: '6',
+							name: 'Droplo',
+							link: 'https://droplo.com/',
+							nested: [],
+						},
+					],
+				},
+			],
+		},
 		{ id: '3', name: 'Droplo', link: 'https://droplo.com/', nested: [] },
-	]) // Example of a data array for development needs. IT WILL BE REPLACED by an empty initial array [] in the future.
+	]) // Initial Array
 
 	const [isFormVisible, setIsFormVisible] = useState(false) // Manage visibility of MenuForm
 
