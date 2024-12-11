@@ -1,10 +1,9 @@
 import { DndContext, closestCenter } from '@dnd-kit/core'
 import {
-	arrayMove,
 	SortableContext,
 	verticalListSortingStrategy,
+	arrayMove,
 } from '@dnd-kit/sortable'
-import { restrictToVerticalAxis } from '@dnd-kit/modifiers'
 
 export default function MenuWrapper({ children, items, setItems }) {
 	const handleDragEnd = event => {
@@ -23,9 +22,7 @@ export default function MenuWrapper({ children, items, setItems }) {
 		<ul className='overflow-hidden'>
 			<DndContext
 				collisionDetection={closestCenter}
-				onDragEnd={handleDragEnd}
-				modifiers={[restrictToVerticalAxis]} // Restrict movement to the vertical axis
-			>
+				onDragEnd={handleDragEnd}>
 				<SortableContext
 					items={items.map(item => item.id)}
 					strategy={verticalListSortingStrategy}>

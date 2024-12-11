@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import MenuForm from './MenuForm'
-import NestedWrapper from './NestedWrapper'
 import MenuItems from './MenuItems'
+import NestedWrapper from './NestedWrapper'
 
 export default function MenuItem({
 	id,
@@ -15,8 +15,7 @@ export default function MenuItem({
 	onAddNested,
 }) {
 	const [isEditing, setIsEditing] = useState(false)
-	const [addingNestedItems, setAddingNestedItems] = useState(false)
-	const [nestedItems, setNestedItems] = useState(nested)
+	const [isAddingNested, setIsAddingNested] = useState(false)
 
 	const { attributes, listeners, setNodeRef, transform, transition } =
 		useSortable({ id })
@@ -31,11 +30,13 @@ export default function MenuItem({
 		setIsEditing(false)
 	}
 
-	const handleAddNestedItem = data => {
-		const newNestedItem = { id: crypto.randomUUID(), ...data, nested: [] }
-		setNestedItems(prev => [...prev, newNestedItem])
-		onAddNested(id, newNestedItem) // Notify parent about nested item addition
-		setAddingNestedItems(false)
+	const handleAddNestedSubmit = data => {
+		onAddNested(id, data)
+		setIsAddingNested(false)
+	}
+
+	const setNestedItems = newNestedItems => {
+		onEdit(id, { nested: newNestedItems })
 	}
 
 	return (
@@ -43,12 +44,12 @@ export default function MenuItem({
 			ref={setNodeRef}
 			style={style}
 			{...attributes}
-			className='flex flex-col cursor-default'>
+			className='flex flex-col'>
 			<div className='flex justify-between items-center px-4 sm:px-6 py-4 min-h-[79px] text-sm font-semibold bg-white border border-[#EAECF0]'>
 				<div className='flex'>
 					<button
-						className='flex justify-center items-center w-10 h-10 hover:scale-105 transition-transform outline-gray-200 cursor-move'
-						{...listeners}>
+						{...listeners}
+						className='flex justify-center items-center w-10 h-10 cursor-move'>
 						<img
 							src='/icons/move.svg'
 							alt='Grabber'
@@ -59,42 +60,37 @@ export default function MenuItem({
 						<a
 							href={link}
 							target='_blank'
-							rel='noopener'
-							className='outline-gray-200'>
-							<p className='font-normal text-[#475467]'>
-								<span className='md:hidden'>Link</span>
-								<span className='hidden md:inline'>{link}</span>
-							</p>
+							rel='noopener noreferrer'
+							className='text-[#475467]'>
+							{link}
 						</a>
 					</div>
 				</div>
-				{/* MenuItem Buttons */}
 				<div className='flex ml-2 text-[#344054] border border-[#D0D5DD] rounded-lg overflow-clip'>
 					<button
 						onClick={() => onRemove(id)}
-						className='p-[0.625rem] px-3 sm:px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
+						className='p-[0.625rem] px-3 border-r'>
 						Usuń
 					</button>
 					<button
 						onClick={() => {
 							setIsEditing(prev => !prev)
-							setAddingNestedItems(false)
+							setIsAddingNested(false)
 						}}
-						className='p-[0.625rem] px-3 sm:px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
+						className='p-[0.625rem] px-3 border-r'>
 						Edytuj
 					</button>
 					<button
 						onClick={() => {
-							setAddingNestedItems(prev => !prev)
+							setIsAddingNested(prev => !prev)
 							setIsEditing(false)
 						}}
-						className='p-[0.625rem] px-3 sm:px-4 outline-gray-200'>
-						Dodaj pozycję menu
+						className='p-[0.625rem] px-3'>
+						Dodaj nested
 					</button>
 				</div>
 			</div>
 
-			{/* Edit form */}
 			{isEditing && (
 				<div className='py-2 px-1 sm:py-4 sm:px-6 w-full'>
 					<MenuForm
@@ -105,47 +101,23 @@ export default function MenuItem({
 					/>
 				</div>
 			)}
-
 			<NestedWrapper>
-				{/* Adding Nested Items form */}
-				{addingNestedItems && (
+				{nested.length > 0 && (
+					<MenuItems
+						items={nested}
+						setItems={setNestedItems}
+						onRemove={onRemove}
+						onEdit={onEdit}
+						onAddNested={onAddNested}
+					/>
+				)}
+				{isAddingNested && (
 					<div className='py-2 pr-2 sm:py-4 sm:pr-6 w-full'>
 						<MenuForm
-							onSubmit={handleAddNestedItem}
-							onCancel={() => setAddingNestedItems(false)}
+							onSubmit={handleAddNestedSubmit}
+							onCancel={() => setIsAddingNested(false)}
 						/>
 					</div>
-				)}
-
-				{/* Nested Items */}
-				{nestedItems.length > 0 && (
-					<MenuItems
-						items={nestedItems}
-						setItems={setNestedItems}
-						onRemove={id =>
-							setNestedItems(prev => prev.filter(item => item.id !== id))
-						}
-						onEdit={(id, data) => {
-							setNestedItems(prev =>
-								prev.map(item => (item.id === id ? { ...item, ...data } : item))
-							)
-						}}
-						onAddNested={(parentId, data) => {
-							setNestedItems(prev =>
-								prev.map(item =>
-									item.id === parentId
-										? {
-												...item,
-												nested: [
-													...item.nested,
-													{ id: crypto.randomUUID(), ...data },
-												],
-										  }
-										: item
-								)
-							)
-						}}
-					/>
 				)}
 			</NestedWrapper>
 		</li>

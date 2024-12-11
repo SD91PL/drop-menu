@@ -20,3 +20,7 @@ body {
 li .dnd-wrapper li:last-child > div {
 	border-bottom-left-radius: 0.5rem;
 }
+
+.menu-items .menu-items .menu-item-form-btn {
+	display: none;
+}

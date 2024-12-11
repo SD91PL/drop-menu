@@ -6,87 +6,73 @@ import MenuItems from '@/components/MenuItems'
 import MenuEmpty from '@/components/MenuEmpty'
 
 export default function Page() {
-	const [items, setItems] = useState([
-		{ id: '1', name: 'Onet', link: 'https://www.onet.pl/', nested: [] },
-		{
-			id: '2',
-			name: 'WP',
-			link: 'https://www.wp.pl/',
-			nested: [
-				{ id: '4', name: 'Bang', link: 'https://www.bang.pl/', nested: [] },
-				{
-					id: '5',
-					name: 'Pozdro',
-					link: 'https://www.Pozdro.com/',
-					nested: [
-						{
-							id: '6',
-							name: 'Droplo',
-							link: 'https://droplo.com/',
-							nested: [],
-						},
-					],
-				},
-			],
-		},
-		{ id: '3', name: 'Droplo', link: 'https://droplo.com/', nested: [] },
-	]) // Initial Array
+	const [items, setItems] = useState([])
+	const [isFormVisible, setIsFormVisible] = useState(false)
 
-	const [isFormVisible, setIsFormVisible] = useState(false) // Manage visibility of MenuForm
+	const updateNestedItem = (tree, id, updater) => {
+		return tree.map(item => {
+			if (item.id === id) {
+				return updater(item)
+			}
+			if (item.nested?.length) {
+				return {
+					...item,
+					nested: updateNestedItem(item.nested, id, updater),
+				}
+			}
+			return item
+		})
+	}
 
-	// Function to handle the addition of new items
+	const removeNestedItem = (tree, id) => {
+		return tree
+			.filter(item => item.id !== id)
+			.map(item => ({
+				...item,
+				nested: removeNestedItem(item.nested, id),
+			}))
+	}
+
 	const handleAddItem = data => {
 		setItems(prev => [
 			...prev,
 			{ id: crypto.randomUUID(), ...data, nested: [] },
 		])
-		setIsFormVisible(false) // Hide the form after adding an item
+		setIsFormVisible(false)
 	}
 
-	// Function to handle removing items
-	const handleRemoveItem = id => {
-		setItems(prev => prev.filter(item => item.id !== id))
-	}
-
-	// Function to handle editing items
 	const handleEditItem = (id, data) => {
-		setItems(prev =>
-			prev.map(item => (item.id === id ? { ...item, ...data } : item))
-		)
+		setItems(prev => updateNestedItem(prev, id, item => ({ ...item, ...data })))
 	}
 
-	// Function to handle adding nested items
+	const handleRemoveItem = id => {
+		setItems(prev => removeNestedItem(prev, id))
+	}
+
 	const handleAddNestedItem = (parentId, data) => {
 		setItems(prev =>
-			prev.map(item =>
-				item.id === parentId
-					? {
-							...item,
-							nested: [...item.nested, { id: crypto.randomUUID(), ...data }],
-					  }
-					: item
-			)
+			updateNestedItem(prev, parentId, item => ({
+				...item,
+				nested: [
+					...item.nested,
+					{ id: crypto.randomUUID(), ...data, nested: [] },
+				],
+			}))
 		)
 	}
 
 	return (
 		<main className='container px-2 py-8 lg:px-4 xl:px-5'>
 			<div className='flex flex-col justify-center items-center gap-7'>
-				{/* Show MenuEmpty and MenuForm when items array is empty */}
 				{items.length === 0 ? (
 					<>
-						{/* Show MenuEmpty only when the form is not visible */}
 						{!isFormVisible && (
-							<MenuEmpty
-								onAddMenu={() => setIsFormVisible(true)} // Show the form on button click
-							/>
+							<MenuEmpty onAddMenu={() => setIsFormVisible(true)} />
 						)}
-
-						{/* Show MenuForm when isFormVisible is true */}
 						{isFormVisible && (
 							<MenuForm
-								onSubmit={handleAddItem} // Add item and hide form
-								onCancel={() => setIsFormVisible(false)} // Hide the form on cancel
+								onSubmit={handleAddItem}
+								onCancel={() => setIsFormVisible(false)}
 							/>
 						)}
 					</>
@@ -94,10 +80,9 @@ export default function Page() {
 					<MenuItems
 						items={items}
 						setItems={setItems}
-						onRemove={handleRemoveItem} // Pass the remove handler
-						onEdit={handleEditItem} // Pass the edit handler
-						onAddNested={handleAddNestedItem} // Pass the nested add handler
-						onAddMenu={() => setIsFormVisible(true)} // Show the form
+						onRemove={handleRemoveItem}
+						onEdit={handleEditItem}
+						onAddNested={handleAddNestedItem}
 					/>
 				)}
 			</div>
