@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import MenuForm from '@/components/MenuForm'
 import MenuItems from '@/components/MenuItems'
 import MenuEmpty from '@/components/MenuEmpty'
@@ -8,6 +8,19 @@ import MenuEmpty from '@/components/MenuEmpty'
 export default function Page() {
 	const [items, setItems] = useState([])
 	const [isFormVisible, setIsFormVisible] = useState(false)
+
+	// Loading data from localStorage
+	useEffect(() => {
+		const storedItems = localStorage.getItem('menuItems')
+		if (storedItems) {
+			setItems(JSON.parse(storedItems))
+		}
+	}, [])
+
+	// Save data to localStorage every time there is a change in the items state
+	useEffect(() => {
+		localStorage.setItem('menuItems', JSON.stringify(items))
+	}, [items])
 
 	const updateNestedItem = (tree, id, updater) => {
 		return tree.map(item => {
