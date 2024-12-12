@@ -25,7 +25,7 @@ export default function MenuItems({
 	}
 
 	return (
-		<div className='menu-items w-full bg-[#f9fafb] rounded-lg border border-[#D0D5DD] overflow-hidden'>
+		<div className='menu-items w-full'>
 			<div className='flex flex-col'>
 				<MenuWrapper
 					items={items}
@@ -53,7 +53,7 @@ export default function MenuItems({
 					</div>
 				)}
 
-				<div className='menu-item-form-btn flex justify-start items-center px-4 sm:px-6 py-4 min-h-[79px] bg-[#f5f5f5] text-sm font-semibold border-t border-t-[#EAECF0]'>
+				<div className='menu-item-form-btn flex justify-start items-center px-4 sm:px-6 py-4 min-h-[79px] bg-[#f5f5f5] text-sm font-semibold border-t border-t-[#EAECF0] z-20'>
 					<button
 						onClick={() => setIsFormVisible(true)}
 						className='py-[0.625rem] px-4 bg-white border border-[#D0D5DD] rounded-lg text-[#344054] shadow-sm hover:shadow focus:shadow outline-none transition-shadow'>

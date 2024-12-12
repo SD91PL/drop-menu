@@ -76,7 +76,7 @@ export default function Page() {
 
 	return (
 		<main className='container px-2 py-8 lg:px-4 xl:px-5'>
-			<div className='flex flex-col justify-center items-center gap-7'>
+			<div className='flex flex-col justify-center items-center gap-7 bg-[#f9fafb]'>
 				{items.length === 0 ? (
 					<>
 						{!isFormVisible && (
@@ -90,13 +90,15 @@ export default function Page() {
 						)}
 					</>
 				) : (
-					<MenuItems
-						items={items}
-						setItems={setItems}
-						onRemove={handleRemoveItem}
-						onEdit={handleEditItem}
-						onAddNested={handleAddNestedItem}
-					/>
+					<div className='w-full rounded-lg border border-[#D0D5DD] overflow-hidden'>
+						<MenuItems
+							items={items}
+							setItems={setItems}
+							onRemove={handleRemoveItem}
+							onEdit={handleEditItem}
+							onAddNested={handleAddNestedItem}
+						/>
+					</div>
 				)}
 			</div>
 		</main>

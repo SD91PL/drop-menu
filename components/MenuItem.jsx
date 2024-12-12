@@ -35,9 +35,8 @@ export default function MenuItem({
 		minHeight: '4.9375rem',
 		willChange: 'transform',
 		zIndex: isDragging ? 10 : 1,
-		filter: isDragging
-			? 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15))'
-			: 'none',
+		opacity: isDragging ? 0.5 : 1,
+		filter: isDragging ? 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15))' : 'none',
 	}
 
 	const handleEditSubmit = data => {
@@ -64,7 +63,7 @@ export default function MenuItem({
 				<div className='flex'>
 					<button
 						{...listeners}
-						className='flex justify-center items-center w-10 h-10 cursor-move'>
+						className='flex justify-center items-center w-10 h-10 hover:scale-105 transition-transform outline-gray-200 cursor-move'>
 						<img
 							src='/icons/move.svg'
 							alt='Grabber'
@@ -75,9 +74,12 @@ export default function MenuItem({
 						<a
 							href={link}
 							target='_blank'
-							rel='noopener noreferrer'
-							className='text-[#475467]'>
-							{link}
+							rel='noopener'
+							className='outline-gray-200'>
+							<p className='font-normal text-[#475467]'>
+								<span className='md:hidden'>Link</span>
+								<span className='hidden md:inline'>{link}</span>
+							</p>
 						</a>
 					</div>
 				</div>

@@ -17,10 +17,27 @@ body {
 }
 
 /* With changed structure */
-li .dnd-wrapper li:last-child > div {
+.menu-items .menu-items .menu-wrapper li:last-of-type div {
 	border-bottom-left-radius: 0.5rem;
 }
 
+/* Lines with only 1px width  between list items */
+.menu-items .menu-wrapper li > div {
+	border-top-width: 0;
+}
+
+.menu-items .menu-wrapper li {
+	position: relative;
+}
+.menu-items .menu-wrapper li::after {
+	content: '';
+	position: absolute;
+	top: -1px;
+	border-top: 1px solid #EAECF0;
+	width: 100%;
+}
+
+/* Hiding unnecessary button in nestings */
 .menu-items .menu-items .menu-item-form-btn {
 	display: none;
 }

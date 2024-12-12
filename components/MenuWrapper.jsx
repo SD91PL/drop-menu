@@ -24,7 +24,7 @@ export default function MenuWrapper({ children, items, setItems }) {
 	}
 
 	return (
-		<ul className='overflow-hidden'>
+		<ul className='menu-wrapper'>
 			<DndContext
 				collisionDetection={closestCenter}
 				onDragEnd={handleDragEnd}>
