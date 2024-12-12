@@ -58,7 +58,7 @@ export default function MenuItem({
 			ref={setNodeRef}
 			style={style}
 			{...attributes}
-			className='flex flex-col'>
+			className='flex flex-col outline-gray-300'>
 			<div className='flex justify-between items-center px-4 sm:px-6 py-4 min-h-[79px] text-sm font-semibold bg-white border border-[#EAECF0]'>
 				<div className='flex'>
 					<button
@@ -86,24 +86,41 @@ export default function MenuItem({
 				<div className='flex ml-2 text-[#344054] border border-[#D0D5DD] rounded-lg overflow-clip'>
 					<button
 						onClick={() => onRemove(id)}
-						className='p-[0.625rem] px-3 border-r'>
-						Usuń
+						className='py-[0.625rem] px-3 sm:px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
+						<img
+							src='/icons/remove.svg'
+							alt='Usuń'
+							className='sm:hidden size-5'
+						/>
+						<span className='hidden sm:inline'>Usuń</span>
 					</button>
 					<button
 						onClick={() => {
 							setIsEditing(prev => !prev)
 							setIsAddingNested(false)
 						}}
-						className='p-[0.625rem] px-3 border-r'>
-						Edytuj
+						className='py-[0.625rem] px-3 sm:px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
+						<img
+							src='/icons/edit.svg'
+							alt='Edytuj'
+							className='sm:hidden size-5'
+						/>
+						<span className='hidden sm:inline'>Edytuj</span>
 					</button>
 					<button
 						onClick={() => {
 							setIsAddingNested(prev => !prev)
 							setIsEditing(false)
 						}}
-						className='p-[0.625rem] px-3'>
-						Dodaj nested
+						className='py-[0.625rem] px-3 sm:px-4 outline-gray-200'>
+						<img
+							src='/icons/add.svg'
+							alt='Dodaj'
+							className='sm:hidden size-5'
+						/>
+						<span className='hidden sm:inline'>
+							Dodaj <span className='hidden md:inline'>pozycję menu</span>
+						</span>
 					</button>
 				</div>
 			</div>

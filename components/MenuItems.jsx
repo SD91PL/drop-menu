@@ -57,7 +57,7 @@ export default function MenuItems({
 					<button
 						onClick={() => setIsFormVisible(true)}
 						className='py-[0.625rem] px-4 bg-white border border-[#D0D5DD] rounded-lg text-[#344054] shadow-sm hover:shadow focus:shadow outline-none transition-shadow'>
-						Dodaj element do listy
+						Dodaj pozycję menu
 					</button>
 				</div>
 			</div>
