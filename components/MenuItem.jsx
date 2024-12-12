@@ -136,6 +136,14 @@ export default function MenuItem({
 				</div>
 			)}
 			<NestedWrapper>
+				{isAddingNested && (
+					<div className='py-2 pr-2 sm:py-4 sm:pr-6 w-full'>
+						<MenuForm
+							onSubmit={handleAddNestedSubmit}
+							onCancel={() => setIsAddingNested(false)}
+						/>
+					</div>
+				)}
 				{nested.length > 0 && (
 					<MenuItems
 						items={nested}
@@ -144,14 +152,6 @@ export default function MenuItem({
 						onEdit={onEdit}
 						onAddNested={onAddNested}
 					/>
-				)}
-				{isAddingNested && (
-					<div className='py-2 pr-2 sm:py-4 sm:pr-6 w-full'>
-						<MenuForm
-							onSubmit={handleAddNestedSubmit}
-							onCancel={() => setIsAddingNested(false)}
-						/>
-					</div>
 				)}
 			</NestedWrapper>
 		</li>

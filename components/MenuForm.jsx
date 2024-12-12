@@ -4,7 +4,7 @@ import * as z from 'zod'
 
 const schema = z.object({
 	name: z.string().nonempty('Nazwa jest wymagana'),
-	link: z.string().url('Podaj poprawny URL'),
+	link: z.string().url('Podaj poprawny URL - http:// lub https://'),
 })
 
 export default function MenuForm({
@@ -44,7 +44,7 @@ export default function MenuForm({
 							{...register('name')}
 							className='py-2 px-3 border border-[#D0D5DD] rounded-lg text-[#667085] text-base outline-none shadow-sm focus:shadow transition-shadow'
 						/>
-						<p className='text-red-500'>{errors.name?.message}</p>
+						<p className='text-red-500 text-xs'>{errors.name?.message}</p>
 					</div>
 					<div className='flex flex-col text-sm gap-1'>
 						<label className='text-[#344054] font-medium'>Link</label>
@@ -52,7 +52,7 @@ export default function MenuForm({
 							{...register('link')}
 							className='py-2 px-3 border border-[#D0D5DD] rounded-lg text-[#667085] text-base outline-none shadow-sm focus:shadow transition-shadow'
 						/>
-						<p className='text-red-500'>{errors.link?.message}</p>
+						<p className='text-red-500 text-xs'>{errors.link?.message}</p>
 					</div>
 				</div>
 				<div className='flex justify-between items-center min-h-[79px] text-sm font-semibold'>
