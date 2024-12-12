@@ -76,7 +76,7 @@ export default function Page() {
 
 	return (
 		<main className='container px-2 py-8 lg:px-4 xl:px-5'>
-			<div className='flex flex-col justify-center items-center gap-7 bg-[#f9fafb]'>
+			<div className='flex flex-col justify-center items-center gap-7 bg-[#f9fafb] rounded-lg'>
 				{items.length === 0 ? (
 					<>
 						{!isFormVisible && (
