@@ -17,12 +17,27 @@ export default function MenuItem({
 	const [isEditing, setIsEditing] = useState(false)
 	const [isAddingNested, setIsAddingNested] = useState(false)
 
-	const { attributes, listeners, setNodeRef, transform, transition } =
-		useSortable({ id })
+	const {
+		attributes,
+		listeners,
+		setNodeRef,
+		transform,
+		transition,
+		isDragging,
+	} = useSortable({ id })
 
 	const style = {
-		transform: CSS.Transform.toString(transform),
-		transition,
+		transform: transform
+			? `translate(${transform.x}px, ${transform.y}px)`
+			: undefined,
+		transition: `${transition}, filter 0.2s`,
+		position: 'relative',
+		minHeight: '4.9375rem',
+		willChange: 'transform',
+		zIndex: isDragging ? 10 : 1,
+		filter: isDragging
+			? 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15))'
+			: 'none',
 	}
 
 	const handleEditSubmit = data => {
