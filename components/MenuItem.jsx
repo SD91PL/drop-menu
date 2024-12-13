@@ -57,7 +57,7 @@ export default function MenuItem({
 			ref={setNodeRef}
 			style={style}
 			{...attributes}
-			className='flex flex-col outline-gray-300 cursor-default'>
+			className='flex flex-col outline-gray-300 cursor-default touch-none'>
 			<div className='flex justify-between items-center px-4 sm:px-6 py-4 min-h-[79px] text-sm font-semibold bg-white border border-[#EAECF0]'>
 				<div className='flex'>
 					<button
