@@ -6,6 +6,10 @@
 - Project prepared as part of [droplo.com](https://droplo.com/) recruitment process.
 - Design based on the received [mockup](https://www.figma.com/design/iop6JTlGuNSwGtHtkyXF9x/Zadanie-rekrutacyjne?node-id=0-1&node-type=canvas&t=KROIpbpbyuRXZaEY-0) in Figma.
 
+### Demo
+
+- You can view the live demo of the project on [Vercel](https://drop-menu.vercel.app/).
+
 ### Component Functionality:
 
 - **`page.jsx`**
