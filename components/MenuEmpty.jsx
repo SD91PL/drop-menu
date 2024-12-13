@@ -1,6 +1,6 @@
 export default function MenuEmpty({ onAddMenu }) {
 	return (
-		<section className='w-full bg-[#F9FAFB] rounded-lg border border-[#EAECF0]'>
+		<section className='w-full bg-[#F9FAFB] rounded-lg border border-[#EAECF0] fade-in'>
 			<div className='flex flex-col justify-center items-center gap-6 py-6'>
 				<div className='flex flex-col justify-center items-center text-center'>
 					<p className='text-base text-[#101828] font-semibold'>

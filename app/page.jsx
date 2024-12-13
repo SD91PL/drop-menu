@@ -100,7 +100,7 @@ export default function Page() {
 						)}
 					</>
 				) : (
-					<div className='w-full rounded-lg border border-[#D0D5DD] overflow-hidden'>
+					<div className='w-full rounded-lg border border-[#D0D5DD] overflow-hidden fade-in'>
 						<MenuItems
 							items={items}
 							setItems={setItems}

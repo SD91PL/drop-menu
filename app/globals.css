@@ -39,3 +39,16 @@ body {
 .menu-items .menu-items .menu-item-form-btn {
 	display: none;
 }
+
+/* Animations */
+.fade-in {
+	animation: fade-in 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

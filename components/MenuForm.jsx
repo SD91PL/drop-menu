@@ -40,7 +40,7 @@ export default function MenuForm({
 	}
 
 	return (
-		<section className='flex pt-[1.1875rem] w-full bg-[#FFFFFF] rounded-lg border border-[#D0D5DD]'>
+		<section className='flex pt-[1.1875rem] w-full bg-[#FFFFFF] rounded-lg border border-[#D0D5DD] fade-in'>
 			<form
 				onSubmit={handleSubmit(handleFormSubmit)}
 				className='flex flex-col w-full px-4 sm:px-0 sm:pl-6'>

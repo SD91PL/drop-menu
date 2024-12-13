@@ -9,7 +9,7 @@ export default function Loading() {
 						alt='Drop Menu logotype'
 					/>
 				</div>
-				<div className='flex justify-center gap-2 opacity-50'>
+				<div className='flex justify-center gap-2 opacity-20'>
 					<div>
 						<img
 							className='grayscale scale-75 opacity-50'
