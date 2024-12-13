@@ -1,5 +1,3 @@
-'use client'
-
 import { useState } from 'react'
 import MenuWrapper from './MenuWrapper'
 import MenuItem from './MenuItem'

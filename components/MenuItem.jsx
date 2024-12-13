@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useSortable } from '@dnd-kit/sortable'
-import { CSS } from '@dnd-kit/utilities'
 import MenuForm from './MenuForm'
 import MenuItems from './MenuItems'
 import NestedWrapper from './NestedWrapper'

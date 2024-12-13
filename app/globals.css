@@ -13,7 +13,6 @@ body {
 	color: var(--foreground);
 	background: var(--background);
 	font-family: 'Inter', sans-serif;
-	overflow-x: hidden; /* Protection against page widening when dragging elements. */
 }
 
 /* With changed structure */
@@ -25,7 +24,6 @@ body {
 .menu-items .menu-wrapper li > div {
 	border-top-width: 0;
 }
-
 .menu-items .menu-wrapper li {
 	position: relative;
 }
@@ -33,7 +31,7 @@ body {
 	content: '';
 	position: absolute;
 	top: -1px;
-	border-top: 1px solid #EAECF0;
+	border-top: 1px solid #eaecf0;
 	width: 100%;
 }
 
