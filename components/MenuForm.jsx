@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
+import { useState } from 'react'
 
 const schema = z.object({
 	name: z.string().nonempty('Nazwa jest wymagana'),
@@ -13,6 +14,8 @@ export default function MenuForm({
 	defaultValues,
 	isEditing,
 }) {
+	const [inputValue, setInputValue] = useState(defaultValues?.link || '')
+
 	const {
 		register,
 		handleSubmit,
@@ -22,6 +25,10 @@ export default function MenuForm({
 		resolver: zodResolver(schema),
 		defaultValues,
 	})
+
+	const handleInputChange = e => {
+		setInputValue(e.target.value) // Update state with input value
+	}
 
 	const handleFormSubmit = data => {
 		onSubmit(data)
@@ -42,7 +49,8 @@ export default function MenuForm({
 						<label className='text-[#344054] font-medium'>Nazwa</label>
 						<input
 							{...register('name')}
-							className='py-2 px-3 border border-[#D0D5DD] rounded-lg text-[#667085] text-base outline-none shadow-sm focus:shadow transition-shadow'
+							placeholder='np. Promocje'
+							className='py-2 px-3 border border-[#D0D5DD] rounded-lg text-[#667085] placeholder-[#667085] text-base outline-none shadow-sm focus:shadow transition-shadow'
 						/>
 						<p className='text-red-500 text-xs'>{errors.name?.message}</p>
 					</div>
@@ -50,7 +58,14 @@ export default function MenuForm({
 						<label className='text-[#344054] font-medium'>Link</label>
 						<input
 							{...register('link')}
-							className='py-2 px-3 border border-[#D0D5DD] rounded-lg text-[#667085] text-base outline-none shadow-sm focus:shadow transition-shadow'
+							placeholder='      Wklej lub wyszukaj'
+							value={inputValue} // Bind state to input value
+							onChange={handleInputChange} // Update state on input change
+							className={`py-2 px-3 border border-[#D0D5DD] rounded-lg text-[#667085] placeholder-[#667085] text-base outline-none shadow-sm focus:shadow transition-shadow  ${
+								inputValue
+									? ''
+									: "bg-[url('/icons/search.svg')] bg-[left_0.75rem_center] bg-no-repeat bg-[length:1.25rem_1.25rem]"
+							}`}
 						/>
 						<p className='text-red-500 text-xs'>{errors.link?.message}</p>
 					</div>
