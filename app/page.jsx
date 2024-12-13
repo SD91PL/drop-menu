@@ -4,10 +4,12 @@ import { useState, useEffect } from 'react'
 import MenuForm from '@/components/MenuForm'
 import MenuItems from '@/components/MenuItems'
 import MenuEmpty from '@/components/MenuEmpty'
+import Loading from './loading'
 
 export default function Page() {
 	const [items, setItems] = useState([])
 	const [isFormVisible, setIsFormVisible] = useState(false)
+	const [isLoading, setIsLoading] = useState(true) // Loading of data state
 
 	// Loading data from localStorage
 	useEffect(() => {
@@ -15,6 +17,8 @@ export default function Page() {
 		if (storedItems) {
 			setItems(JSON.parse(storedItems))
 		}
+		// For completed loading
+		setIsLoading(false)
 	}, [])
 
 	// Save data to localStorage every time there is a change in the items state
@@ -73,6 +77,11 @@ export default function Page() {
 				],
 			}))
 		)
+	}
+
+	// Show loading screen if data is still being loaded
+	if (isLoading) {
+		return <Loading />
 	}
 
 	return (
