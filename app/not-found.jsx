@@ -7,7 +7,7 @@ export default function NotFound() {
 				<div className='flex justify-center opacity-10'>
 					<img
 						className='grayscale'
-						src='/logo.png'
+						src='/logo.webp'
 						alt='Drop Menu logotype'
 					/>
 				</div>

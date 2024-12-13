@@ -5,7 +5,7 @@ export default function Loading() {
 				<div className='mt-8 flex justify-center opacity-10'>
 					<img
 						className='grayscale h-[100px]'
-						src='/logo.png'
+						src='/logo.webp'
 						alt='Drop Menu logotype'
 					/>
 				</div>
