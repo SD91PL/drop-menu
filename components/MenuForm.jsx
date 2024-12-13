@@ -37,6 +37,7 @@ export default function MenuForm({
 
 	const handleClearFields = () => {
 		reset({ name: '', link: '' }) // Reset fields to empty strings
+		setInputValue('') // Ensure inputValue state is also cleared - show search icon in placeholder
 	}
 
 	return (
