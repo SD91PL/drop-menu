@@ -23,7 +23,7 @@
 - **`MenuItems.jsx`**
   > Displays a list of menu items and allows adding new ones.
   >
-  > Hidden adding of new menu items on nested lists via `globals.css`.
+  > Adding new menu items is hidden on nested lists via `globals.css`.
 
 - **`MenuWrapper.jsx`**
   > Wraps the menu list and provides drag-and-drop functionality.
