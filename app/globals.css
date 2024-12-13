@@ -15,12 +15,12 @@ body {
 	font-family: 'Inter', sans-serif;
 }
 
-/* With changed structure */
+/* Last list item of the nested list */
 .menu-items .menu-items .menu-wrapper li:last-of-type div {
 	border-bottom-left-radius: 0.5rem;
 }
 
-/* Lines with only 1px width  between list items */
+/* Borders with only 1px width between list items */
 .menu-items .menu-wrapper li > div {
 	border-top-width: 0;
 }
