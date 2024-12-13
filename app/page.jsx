@@ -22,6 +22,7 @@ export default function Page() {
 		localStorage.setItem('menuItems', JSON.stringify(items))
 	}, [items])
 
+	// State management - items
 	const updateNestedItem = (tree, id, updater) => {
 		return tree.map(item => {
 			if (item.id === id) {

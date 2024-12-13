@@ -65,6 +65,7 @@ function moveItemInTree(tree, fromPath, toPath) {
 	return newTree
 }
 
+// Function to extract an item from a tree at the given path.
 function extractItemAtPath(tree, path) {
 	const index = path[path.length - 1]
 	const parent = path.slice(0, -1).reduce((acc, idx) => acc[idx].nested, tree)
@@ -73,6 +74,7 @@ function extractItemAtPath(tree, path) {
 	return removed
 }
 
+// Function to insert an item into a tree at the given path.
 function insertItemAtPath(tree, item, path) {
 	const index = path[path.length - 1]
 	const parent = path.slice(0, -1).reduce((acc, idx) => acc[idx].nested, tree)
