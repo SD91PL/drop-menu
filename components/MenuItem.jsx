@@ -59,30 +59,32 @@ export default function MenuItem({
 			{...attributes}
 			className='flex flex-col outline-gray-300 cursor-default touch-none'>
 			<div className='flex justify-between items-center px-4 sm:px-6 py-4 min-h-[79px] text-sm font-semibold bg-white border border-[#EAECF0]'>
-				<div className='flex'>
+				{/* GRABBER AND LABELS */}
+				<div className='flex overflow-hidden'>
 					<button
 						{...listeners}
-						className='flex justify-center items-center w-10 h-10 hover:scale-105 transition-transform outline-gray-200 cursor-move'>
+						className='flex justify-center items-center flex-none w-10 h-10 hover:scale-105 transition-transform outline-gray-200 cursor-move'>
 						<img
 							src='/icons/move.svg'
 							alt='Grabber'
 						/>
 					</button>
-					<div className='flex flex-col'>
-						<p className='text-[#101828]'>{name}</p>
+					<div className='flex flex-col overflow-hidden'>
+						<p className='text-[#101828] truncate'>{name}</p>
 						<a
 							href={link}
 							target='_blank'
 							rel='noopener'
 							className='outline-gray-200'>
-							<p className='font-normal text-[#475467]'>
+							<p className='font-normal text-[#475467] truncate'>
 								<span className='md:hidden'>Link</span>
 								<span className='hidden md:inline'>{link}</span>
 							</p>
 						</a>
 					</div>
 				</div>
-				<div className='flex ml-2 text-[#344054] border border-[#D0D5DD] rounded-lg overflow-clip'>
+				{/* BUTTONS */}
+				<div className='flex ml-2 text-[#344054] border border-[#D0D5DD] rounded-lg overflow-clip flex-shrink-0'>
 					<button
 						onClick={() => onRemove(id)}
 						className='py-[0.625rem] px-3 sm:px-4 border-r border-r-[#D0D5DD] outline-gray-200'>
