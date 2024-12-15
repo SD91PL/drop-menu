@@ -6,31 +6,33 @@
 - Project prepared as part of [droplo.com](https://droplo.com/) recruitment process.
 - Design based on the received [mockup](https://www.figma.com/design/iop6JTlGuNSwGtHtkyXF9x/Zadanie-rekrutacyjne?node-id=0-1&node-type=canvas&t=KROIpbpbyuRXZaEY-0) in Figma.
 
-### Demo
 
-- You can view the live demo of the project on [Vercel](https://drop-menu.vercel.app/).
+## Demo
 
-### Component Functionality:
+- Live Demo: [https://drop-menu.vercel.app/](https://drop-menu.vercel.app/)
 
-- **`page.jsx`**
+
+## Components:
+
+**`app/page.jsx`**
   > Manages the page state, handles data loading, and updates items.
 
-- **`MenuEmpty.jsx`**
+**`MenuEmpty.jsx`**
   > Displays a message when the menu is empty and provides an option to add the first item.
 
-- **`MenuForm.jsx`**
+**`MenuForm.jsx`**
   > A form for adding/editing menu items with validation.
 
-- **`MenuItem.jsx`**
+**`MenuItem.jsx`**
   > Displays a menu item with options to remove, edit, or add nested items.
 
-- **`MenuItems.jsx`**
+**`MenuItems.jsx`**
   > Displays a list of menu items and allows adding new ones.
-  >
+  
   > Adding new menu items is hidden on nested lists via `globals.css`.
 
-- **`MenuWrapper.jsx`**
-  > Wraps the menu list and provides drag-and-drop functionality.
+**`MenuWrapper.jsx`**
+  > Wraps the list of menu items and provides drag-and-drop functionality.
 
-- **`NestedWrapper.jsx`**
+**`NestedWrapper.jsx`**
   > Displays nested menu items with indentation.
