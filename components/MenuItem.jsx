@@ -77,8 +77,11 @@ export default function MenuItem({
 							rel='noopener'
 							className='outline-gray-200'>
 							<p className='font-normal text-[#475467] truncate'>
-								<span className='md:hidden'>Link</span>
-								<span className='hidden md:inline'>{link}</span>
+								<span className='flex sm:hidden'>
+									<img className='mt-[0.1rem] mr-1 size-4 flex-none' src="./icons/link.svg" alt="" />
+									Strona...
+								</span>
+								<span className='hidden sm:inline'>{link}</span>
 							</p>
 						</a>
 					</div>
